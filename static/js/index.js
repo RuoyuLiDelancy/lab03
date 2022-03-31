@@ -37,13 +37,13 @@ let connect_session = (user_name) => {
   socket.on("connect", function () {
     console.log("connected!");
     document.querySelector("#login").style.display = "none";
-    socket.emit("my event", {
-      data: "User Connected",
+    socket.emit("get_users", {
+      data: "Get users upon user connect",
     });
     let form = $("#message-form").on("submit", function (e) {
       e.preventDefault();
       let user_input = $("#message-input-comments").val();
-      socket.emit("my event", {
+      socket.emit("post_comments", {
         user_name: user_name,
         message: user_input,
       });
@@ -51,10 +51,68 @@ let connect_session = (user_name) => {
     });
   });
 
-  socket.on("my response", function (msg) {
-    console.log("received message from server: ", msg);
+  // New user list delivered from server
+  socket.on("update_users", function (msg) {
+    console.log("Updated user list: ", msg);
     if (typeof msg.message !== "undefined") {
-      //   $("h3").remove();
+      $("div.comments-panel").append(
+        `
+        <div class="comment">
+        <div class="comment-user-name">System</div>
+        <div class="comment-user-content">${msg.message}</div>
+        </div>
+        `
+      );
+      var comments = document.querySelector(".comments-panel");
+      comments.scrollTop = comments.scrollHeight;
+      let contacts_panel = document.querySelector(".contacts-panel");
+      contacts_panel.innerHTML = "";
+      console.log(msg.users);
+      for (let user of Object.keys(msg.users)) {
+        $("div.contacts-panel").append(
+          `
+            <div class="contact">
+            <img
+              class="contact-avatar"
+              src="http://${document.domain}:${location.port}/static/img/avatar.png"
+              alt="avatar"
+            />
+            <div class="contact-name">${user}</div>
+          </div>
+            `
+        );
+      }
+    }
+  });
+
+  // Get user list upon initial connect
+  socket.on("get_users", function (msg) {
+    console.log("Received user list: ", msg);
+    if (typeof msg.users !== "undefined") {
+      let contacts_panel = document.querySelector(".contacts-panel");
+      contacts_panel.innerHTML = "";
+      console.log(msg.users);
+      for (let user of Object.keys(msg.users)) {
+        $("div.contacts-panel").append(
+          `
+                <div class="contact">
+                <img
+                  class="contact-avatar"
+                  src="http://${document.domain}:${location.port}/static/img/avatar.png"
+                  alt="avatar"
+                />
+                <div class="contact-name">${user}</div>
+              </div>
+                `
+        );
+      }
+    }
+  });
+
+  // New comments delivered from server
+  socket.on("new_comments", function (msg) {
+    console.log("New Comments from others: ", msg);
+    if (typeof msg.message !== "undefined") {
       $("div.comments-panel").append(
         `
         <div class="comment">

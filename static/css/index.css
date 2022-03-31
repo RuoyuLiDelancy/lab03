@@ -79,6 +79,7 @@ html {
   justify-content: space-around;
   border: 1px solid rgb(121, 101, 238);
   border-radius: 12px;
+  margin-bottom: 20px;
 }
 
 .contact-avatar {

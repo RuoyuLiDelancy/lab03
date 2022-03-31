@@ -16,12 +16,13 @@ def sessions():
 def messageReceived(methods=['GET', 'POST']):
     print('message was received!!!')
 
-@socketio.on('my event')
-def handle_my_custom_event(json, methods=['GET', 'POST']):
-    print('received my event: ' + str(json))
-    socketio.emit('my response', json, callback=messageReceived)
+@socketio.on('get_users')
+def handle_get_users(json, methods=['GET', 'POST']):
+    socketio.emit('get_users', {
+            "users": users
+        }, callback=messageReceived)
 
-@socketio.on('comments')
+@socketio.on('post_comments')
 def handle_comments(json, methods=['GET', 'POST']):
     print('New comments: ' + str(json))
     socketio.emit('new_comments', json, callback=messageReceived)
@@ -35,7 +36,11 @@ def connect():
         users[username] = users[username] + 1 
     else:
         users[username] = 1 
-        socketio.emit('user_joinned', users, broadcast=True, include_self=False)
+        msg = {
+            "message": f"{username} joined the chat",
+            "users": users
+        }
+        socketio.emit('update_users', msg, broadcast=True, include_self=False)
 
 @socketio.on('disconnect', namespace='/')
 def disconnect():
@@ -45,7 +50,11 @@ def disconnect():
     users[username] = users[username] - 1
     if users[username] == 0:
         users.pop(username)
-        socketio.emit('user_left', users, broadcast=True, include_self=False)
+        msg = {
+            "message": f"{username} left the chat",
+            "users": users
+        }
+        socketio.emit('update_users', msg, broadcast=True, include_self=False)
     
 
 if __name__ == "__main__":
