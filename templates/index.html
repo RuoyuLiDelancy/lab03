@@ -1,27 +1,59 @@
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-
-<style>
-    * {
-        font-family: "Rubik", "sans-serif";
-    }
-
-    div {
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    h1 {
-        color: red;
-        font-size: 40pt;
-    }
-
-    p {
-        font-size: 24pt;
-    }
-</style>
-
-<div>
-    <h1>Welcome!</h1><br>
-    <p>This site has been visited {{ count }} times.</p>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='css/index.css') }}"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="l-panel">
+        <div class="contacts-panel">
+          <div class="contact">
+            <img
+              class="contact-avatar"
+              src="{{ url_for('static',filename='img/avatar.png') }}"
+              alt="avatar"
+            />
+            <div class="contact-name">user-1</div>
+          </div>
+        </div>
+        <div class="settings-panel"></div>
+      </div>
+      <div class="r-panel">
+        <div class="news-panel">
+          <div class="news-img">
+            <img
+              class="news-img-img"
+              src="{{ url_for('static',filename='img/news.png') }}"
+              alt="news"
+            />
+          </div>
+          <div class="news-title">
+            Electric car chargepoints to overtake fuel pumps
+          </div>
+          <div class="news-info">From BBC News</div>
+        </div>
+        <div class="comments-panel">
+          <div class="comment">
+            <div class="comment-user-name">user-1</div>
+            <div class="comment-user-content">Good content!</div>
+          </div>
+        </div>
+        <div class="message-panel">
+          <div class="message-input">
+            <textarea id="message-input-comments" rows="4" cols="50">
+                Write your comments here
+                </textarea
+            >
+          </div>
+          <div class="message-action">
+            <button id="send-comments">Send</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
