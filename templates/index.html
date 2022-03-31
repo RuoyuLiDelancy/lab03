@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script
+      type="module"
+      src="{{ url_for('static',filename='js/index.js') }}"
+    ></script>
     <link
       rel="stylesheet"
       type="text/css"
@@ -8,6 +13,11 @@
     />
   </head>
   <body>
+    <div id="login" class="login">
+      <div class="login-header">Set your username</div>
+      <input id="login-input" type="text" />
+      <button id="login-button">Connect</button>
+    </div>
     <div class="main">
       <div class="l-panel">
         <div class="contacts-panel">
@@ -43,15 +53,17 @@
           </div>
         </div>
         <div class="message-panel">
-          <div class="message-input">
-            <textarea id="message-input-comments" rows="4" cols="50">
+          <form id="message-form">
+            <div class="message-input">
+              <textarea id="message-input-comments" rows="4" cols="50">
                 Write your comments here
                 </textarea
-            >
-          </div>
-          <div class="message-action">
-            <button id="send-comments">Send</button>
-          </div>
+              >
+            </div>
+            <div class="message-action">
+              <input type="submit" id="send-comments" />
+            </div>
+          </form>
         </div>
       </div>
     </div>
