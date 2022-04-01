@@ -32,7 +32,7 @@ let set_username = () => {
 let connect_session = (user_name) => {
   document.querySelector("#username").innerHTML = user_name;
   console.log("Connecting session");
-  let socket = io.connect("http://" + document.domain + ":" + location.port, {
+  let socket = io.connect("https://" + document.domain + ":" + location.port, {
     query: { username: user_name },
   });
   socket.on("connect", function () {
@@ -75,7 +75,7 @@ let connect_session = (user_name) => {
             <div class="contact">
             <img
               class="contact-avatar"
-              src="http://${document.domain}:${location.port}/static/img/avatar.png"
+              src="https://${document.domain}:${location.port}/static/img/avatar.png"
               alt="avatar"
             />
             <div class="contact-name">${user}</div>
@@ -99,7 +99,7 @@ let connect_session = (user_name) => {
                 <div class="contact">
                 <img
                   class="contact-avatar"
-                  src="http://${document.domain}:${location.port}/static/img/avatar.png"
+                  src="https://${document.domain}:${location.port}/static/img/avatar.png"
                   alt="avatar"
                 />
                 <div class="contact-name">${user}</div>
