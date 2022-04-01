@@ -49,15 +49,17 @@ html {
   height: 96%;
   width: 96%;
   margin: 2%;
-  background: rgb(63, 63, 124);
+  background: rgb(37, 37, 73);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  border: 1px solid transparent;
+  border-radius: 12px;
 }
 
 .l-panel {
-  background: rgb(36, 36, 71);
+  background: transparent;
   height: 98%;
   width: 20%;
   display: flex;
@@ -67,9 +69,11 @@ html {
 }
 
 .contacts-panel {
-  background: rgb(65, 65, 129);
+  background: rgb(46, 46, 88);
   height: 60%;
   width: 94%;
+  border: 1px solid rgb(114, 70, 209);
+  border-radius: 12px;
 }
 
 .contact {
@@ -79,26 +83,67 @@ html {
   justify-content: space-around;
   border: 1px solid rgb(121, 101, 238);
   border-radius: 12px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 5%;
+  width: 90%;
 }
 
 .contact-avatar {
-  background: rgb(146, 146, 148);
   height: 98%;
   width: 30%;
   border-radius: 50%;
 }
 
 .contact-name {
-  background: rgb(148, 148, 148);
+  background: transparent;
   height: 98%;
   width: 50%;
+  color: white;
 }
 
 .settings-panel {
-  background: rgb(65, 65, 129);
+  background: rgb(46, 46, 88);
   height: 30%;
   width: 94%;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; 
+}
+
+.countdown-panel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; 
+  border: 1px solid rgb(108, 110, 228);
+  border-radius: 12px;
+  width: 96%;
+  height: 30%;
+  color: rgb(174, 182, 191)
+}
+
+.profile-panel{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; 
+  border: 1px solid rgb(108, 110, 228);
+  border-radius: 12px;
+  width: 96%;
+  height: 30%;
+}
+
+.profile-panel img{
+  height: 30px;
+  width: 30px;
+}
+
+#username{
+  color: white;
+  font-size: x-large;
 }
 
 .r-panel {
@@ -112,22 +157,27 @@ html {
 }
 
 .news-panel {
-  background: rgb(65, 65, 129);
+  background: rgb(55, 55, 109);
   height: 50%;
   width: 94%;
+  border: 1px solid rgb(57, 57, 116);
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  color: white;
 }
 
 .news-img {
-  background: rgb(77, 77, 153);
+  background: transparent;
   height: 70%;
   width: 94%;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 12px;
 }
 
 .news-img-img {
@@ -141,6 +191,9 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: x-large;
 }
 
 .news-info {
@@ -150,12 +203,16 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 12px;
 }
 
 .comments-panel {
-  background: rgb(65, 65, 129);
+  background: rgb(51, 51, 102);
   height: 30%;
   width: 94%;
+  border: 1px solid transparent;
+  border-radius: 12px;
   overflow: auto;
   /* display: flex;
   flex-direction: column;
@@ -164,32 +221,39 @@ html {
 }
 
 .comment {
-  background: rgb(29, 29, 59);
+  background: rgb(32, 32, 66);
   width: 94%;
   height: 20%;
   min-height: 20%;
-  margin-top: 5%;
+  margin-top: 1%;
   margin-left: 3%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: white;
 }
 
 .comment-user-name {
-  background: rgb(59, 59, 102);
+  background: transparent;
   width: 20%;
 }
 
 .comment-user-content {
-  background: rgb(59, 59, 102);
+  background: transparent;
   width: 76%;
+  border: 1px solid transparent;
+  border-radius: 12px;
 }
 
 .message-panel {
-  background: rgb(65, 65, 129);
+  background: rgb(44, 44, 86);
   height: 16%;
   width: 94%;
+  border: 1px solid transparent;
+  border-radius: 12px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -206,9 +270,11 @@ html {
 }
 
 .message-input {
-  background: rgb(47, 47, 95);
+  background: transparent;
   height: 94%;
   width: 80%;
+  border: 1px solid transparent;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -224,7 +290,7 @@ html {
 }
 
 .message-action {
-  background: rgb(47, 47, 95);
+  background: transparent;
   height: 94%;
   width: 14%;
   display: flex;
@@ -235,8 +301,8 @@ html {
 #send-comments {
   height: 96%;
   width: 96%;
-  background: rgb(66, 66, 153);
+  background: rgb(38, 38, 86);
   color: white;
-  border: 1px solid transparent;
+  border: 1px solid rgb(101, 103, 231);
   border-radius: 11px;
 }

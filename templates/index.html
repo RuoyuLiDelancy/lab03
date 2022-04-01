@@ -30,7 +30,24 @@
             <div class="contact-name">user-1</div>
           </div>
         </div>
-        <div class="settings-panel"></div>
+        <div class="settings-panel">
+          <div class="countdown-panel">
+            <div class="next-topic-name">
+              Next Topic @ <span id="next-topic-time-value">16:55:32</span>
+            </div>
+            <div class="next-topic-name" id="next-topic-name">
+              Global warming
+            </div>
+          </div>
+          <div class="profile-panel">
+            <img
+              class="contact-avatar"
+              src="{{ url_for('static',filename='img/avatar.png') }}"
+              alt="avatar"
+            />
+            <div id="username">user</div>
+          </div>
+        </div>
       </div>
       <div class="r-panel">
         <div class="news-panel">
@@ -55,10 +72,11 @@
         <div class="message-panel">
           <form id="message-form">
             <div class="message-input">
-              <textarea id="message-input-comments" rows="4" cols="50">
-                Write your comments here
-                </textarea
-              >
+              <textarea
+                id="message-input-comments"
+                rows="4"
+                cols="50"
+              ></textarea>
             </div>
             <div class="message-action">
               <input type="submit" id="send-comments" />

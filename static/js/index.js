@@ -30,6 +30,7 @@ let set_username = () => {
 };
 
 let connect_session = (user_name) => {
+  document.querySelector("#username").innerHTML = user_name;
   console.log("Connecting session");
   let socket = io.connect("http://" + document.domain + ":" + location.port, {
     query: { username: user_name },
