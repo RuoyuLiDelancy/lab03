@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO
 
+debug_mode = False
+
 app = Flask(__name__)
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config['SECRET_KEY'] = 'chatappaaaaz6666#'
-socketio = SocketIO(app, cors_allowed_origins='*')
+socketio = SocketIO(app, cors_allowed_origins='*', async_handlers=True, pingTimeout=900)
 
 clients = {}
 users = {}
@@ -58,4 +60,4 @@ def disconnect():
     
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=debug_mode)
