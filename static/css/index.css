@@ -19,14 +19,14 @@ html {
   border-radius: 14px;
   display: flex;
   flex-direction: column;
-  align-content: center;
-  justify-content: center;
+  align-content: space-between;
+  justify-content: space-between;
   display: none;
 }
 
 .login-header {
-  margin-top: 20%;
   height: 10%;
+  margin-top: 10%;
   text-align: center;
   color: white;
 }
@@ -39,7 +39,6 @@ html {
 }
 
 #login-button {
-  margin-top: 10%;
   height: 10%;
   margin-left: 10%;
   width: 80%;
