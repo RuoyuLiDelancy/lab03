@@ -6,4 +6,4 @@ itsdangerous==2.1.0
 Jinja2==3.0.3
 MarkupSafe==2.1.0
 Werkzeug==2.0.3
-python-socketio==5.5.2
+flask_socketio==5.1.1
